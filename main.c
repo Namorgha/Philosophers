@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 05:09:52 by namorgha          #+#    #+#             */
-/*   Updated: 2023/03/24 18:15:27 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/03/25 18:20:58 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	t_philos	ph;
+	t_info	ph;
 
-	// ph = malloc(sizeof(t_philos));
+	// ph = malloc(sizeof(t_info));
 	creat_threads(&ph, ac, av);
 }

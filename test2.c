@@ -6,19 +6,16 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 08:45:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/03/22 12:07:19 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:43:28 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-// void	time_mili(t_philos *ph)
-// {
-// 	int	i;
+long long	get_time(void)
+{
+	struct timeval	tv;
 
-// 	i = 0;
-// 	while (i < ph.time_to_die)
-// 	{
-// 		gettimeofday();
-// 	}
-// }
+	gettimeofday(&tv, NULL);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+}

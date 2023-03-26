@@ -6,7 +6,7 @@
 #    By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 23:09:41 by namorgha          #+#    #+#              #
-#    Updated: 2023/03/23 20:58:13 by namorgha         ###   ########.fr        #
+#    Updated: 2023/03/26 01:20:25 by namorgha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@ NAME = philo
 
 CC = cc
 
-OBJ = main.c test1.c
+OBJ = main.c test1.c test2.c
 
-OBJO = main.o test1.o
+OBJO = main.o test1.o test2.o
 
 all: $(NAME)
 
-$(NAME): $(OBJO)
-		$(CC) -Wall -Wextra -Werror -pthread $^ -o $(NAME)
+$(NAME):
+		$(CC) -Wall -Wextra -Werror -pthread $(OBJ) -o $(NAME)
 
 clean:
 	rm -f $(OBJO)
