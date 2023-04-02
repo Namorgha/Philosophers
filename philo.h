@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 23:09:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/03/30 03:47:57 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/02 14:05:26 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 typedef struct s_philos
 {
+	int				i;
 	int				number_of_philosophers;
 	int				time_to_die;
 	int				time_to_eat;
@@ -30,15 +31,14 @@ typedef struct s_philos
 	int				forkl;
 	int				forkr;
 	long long		last_meal;
-	int				should_die;
-	int				meals;
+	long long		should_die;
+	int				ate;
 	pthread_t		philo;
 	pthread_mutex_t	*fork;
 	long long		start;
-	struct s_philos	*info;
 }				t_philos;
 
-void			tasks(t_philos **ph, int ac, char **av);
+void			tasks(t_philos *ph, int ac, char **av);
 void			check(int ac);
 long long		curr_time(t_philos *philo);
 void			death(t_philos *philo);
