@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/03 21:11:18 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/03 22:52:31 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	creat_threads(t_philos *phil, int ac, char **av)
 	{
 		if (pthread_create(&phil[i].philo, NULL, &routine, &phil[i]) != 0)
 			return (1);
-		usleep (50);
+		usleep (500);
 		i++;
 	}
 	if (check_time_of_death(phil))
