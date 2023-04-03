@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mutex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 05:09:52 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/03 11:46:23 by namorgha         ###   ########.fr       */
+/*   Created: 2023/04/03 12:21:15 by namorgha          #+#    #+#             */
+/*   Updated: 2023/04/03 12:21:38 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+void	mutex(t_philos *ph)
 {
-	t_philos	*ph;
+	int				j;
 
-	ph = malloc(sizeof(t_philos) * atoi(av[1]));
-	creat_threads(ph, ac, av);
+	j = 0;
+	while (j < ph->number_of_philosophers)
+	{
+		pthread_mutex_init(&ph->fork[j], NULL);
+		j++;
+	}
 }

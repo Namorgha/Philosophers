@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   death.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 05:09:52 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/03 11:46:23 by namorgha         ###   ########.fr       */
+/*   Created: 2023/04/03 12:28:46 by namorgha          #+#    #+#             */
+/*   Updated: 2023/04/03 13:20:54 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+int	check_time_of_death(t_philos *philo)
 {
-	t_philos	*ph;
+	int	i;
 
-	ph = malloc(sizeof(t_philos) * atoi(av[1]));
-	creat_threads(ph, ac, av);
+	i = 0;
+	while (1)
+	{
+		i = 0;
+		while (i < philo->number_of_philosophers)
+		{
+			if ((get_time() - philo[i].last_meal) > philo->time_to_die)
+			{
+				usleep(150);
+				printf("%lld %d died\n", curr_time(philo), philo[i].id);
+				return (1);
+			}
+			i++;
+		}
+	}
 }

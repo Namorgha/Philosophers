@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 23:09:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/02 14:05:26 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/03 13:16:39 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_philos
 	int				forkl;
 	int				forkr;
 	long long		last_meal;
-	long long		should_die;
+	int				should_die;
 	int				ate;
 	pthread_t		philo;
 	pthread_mutex_t	*fork;
@@ -39,14 +39,18 @@ typedef struct s_philos
 }				t_philos;
 
 void			tasks(t_philos *ph, int ac, char **av);
+int				check_time_of_death(t_philos *philo);
+void			make_info(t_philos *philo);
 void			check(int ac);
+void			check_error(t_philos *ph, int ac);
 long long		curr_time(t_philos *philo);
-void			death(t_philos *philo);
 void			*timing(void *i);
 int				creat_threads(t_philos *ph, int ac, char **av);
 void			my_usleep(int ms);
 long long int	get_time(void);
 void			mutex(t_philos *ph);
-void			philo_info(t_philos *phil, int i);
+void			taking_left_fork(t_philos *philo);
+void			taking_right_fork(t_philos *philo);
+void			is_eating(t_philos *philo);
 
 #endif

@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   my_usleep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 05:09:52 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/03 11:46:23 by namorgha         ###   ########.fr       */
+/*   Created: 2023/04/03 12:18:01 by namorgha          #+#    #+#             */
+/*   Updated: 2023/04/03 12:18:24 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+void	my_usleep(int ms)
 {
-	t_philos	*ph;
+	long int	time;
 
-	ph = malloc(sizeof(t_philos) * atoi(av[1]));
-	creat_threads(ph, ac, av);
+	time = get_time();
+	while (get_time() - time < ms)
+		usleep(50);
 }

@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   info.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 05:09:52 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/03 11:46:23 by namorgha         ###   ########.fr       */
+/*   Created: 2023/04/03 12:25:30 by namorgha          #+#    #+#             */
+/*   Updated: 2023/04/03 12:26:42 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+void	make_info(t_philos *philo)
 {
-	t_philos	*ph;
+	int	i;
 
-	ph = malloc(sizeof(t_philos) * atoi(av[1]));
-	creat_threads(ph, ac, av);
+	i = 0;
+	while (i < philo->number_of_philosophers)
+	{
+		philo[i].fork = philo->fork;
+		philo[i].id = i + 1;
+		philo[i].forkl = i;
+		philo[i].forkr = (i + 1) % philo->number_of_philosophers;
+		philo[i].last_meal = get_time();
+		philo->should_die = 0;
+		philo[i].ate = 0;
+		i++;
+	}
 }
