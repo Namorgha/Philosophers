@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:18:01 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/03 12:18:24 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:39:27 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	my_usleep(int ms)
 
 	time = get_time();
 	while (get_time() - time < ms)
-		usleep(50);
+		usleep(500);
 }

@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   death.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 12:28:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/03 21:12:20 by namorgha         ###   ########.fr       */
+/*   Created: 2023/04/03 14:15:00 by namorgha          #+#    #+#             */
+/*   Updated: 2023/04/03 14:18:30 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	check_time_of_death(t_philos *philo)
+int	ft_atoi(const char *str)
 {
-	int	i;
+	int		i;
+	int		res;
+	int		sign;
 
-	while (1)
+	i = 0;
+	res = 0;
+	sign = 1;
+	while ((str[i] >= 9 && 13 >= str[i]) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		i = 0;
-		while (i < philo->number_of_philosophers)
-		{
-			if ((get_time() - philo[i].last_meal) >= philo->time_to_die)
-			{
-				philo->died = 1;
-				usleep(500);
-				printf("%lld %d died\n", curr_time(philo), philo[i].id);
-				return (1);
-			}
-			i++;
-		}
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	return (0);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = (res * 10) + str[i] - 48;
+		i++;
+	}
+	return (res * sign);
 }

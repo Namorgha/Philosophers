@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:20:07 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/03 12:21:54 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/03 14:42:46 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	tasks(t_philos *ph, int ac, char **av)
 	int	i;
 	int	n;
 
-	n = atoi(av[1]);
+	n = ft_atoi(av[1]);
 	if (n < 1)
 	{
 		printf("\033[31mError: number of "\
@@ -53,11 +53,11 @@ void	tasks(t_philos *ph, int ac, char **av)
 	while (i++ < n)
 	{
 		ph[i].number_of_philosophers = n;
-		ph[i].time_to_die = atoi(av[2]);
-		ph[i].time_to_eat = atoi(av[3]);
-		ph[i].time_to_sleep = atoi(av[4]);
+		ph[i].time_to_die = ft_atoi(av[2]);
+		ph[i].time_to_eat = ft_atoi(av[3]);
+		ph[i].time_to_sleep = ft_atoi(av[4]);
 		if (ac == 6)
-			ph[i].number_of_times_each_philosopher_must_eat = atoi(av[5]);
+			ph[i].number_of_times_each_philosopher_must_eat = ft_atoi(av[5]);
 	}
 	check_error(ph, ac);
 }

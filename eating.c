@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   death.c                                            :+:      :+:    :+:   */
+/*   eating.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 12:28:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/03 21:12:20 by namorgha         ###   ########.fr       */
+/*   Created: 2023/04/03 14:13:41 by namorgha          #+#    #+#             */
+/*   Updated: 2023/04/03 21:11:37 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	check_time_of_death(t_philos *philo)
+void	is_eating(t_philos *philo)
 {
-	int	i;
-
-	while (1)
-	{
-		i = 0;
-		while (i < philo->number_of_philosophers)
-		{
-			if ((get_time() - philo[i].last_meal) >= philo->time_to_die)
-			{
-				philo->died = 1;
-				usleep(500);
-				printf("%lld %d died\n", curr_time(philo), philo[i].id);
-				return (1);
-			}
-			i++;
-		}
-	}
-	return (0);
+	if (!(*philo->pointer))
+		printf("%lld %d is eating\n", curr_time(philo), philo->id);
+	my_usleep(philo->time_to_eat);
+	philo->last_meal = get_time();
+	pthread_mutex_unlock(&philo->fork[philo->forkl]);
+	pthread_mutex_unlock(&philo->fork[philo->forkr]);
 }
