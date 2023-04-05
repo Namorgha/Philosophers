@@ -5,28 +5,28 @@
 #                                                     +:+ +:+         +:+      #
 #    By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/16 23:09:41 by namorgha          #+#    #+#              #
-#    Updated: 2023/04/03 20:17:58 by namorgha         ###   ########.fr        #
+#    Created: 2023/04/03 23:12:19 by namorgha          #+#    #+#              #
+#    Updated: 2023/04/03 23:15:43 by namorgha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philo
+NAME = philo_bonus
 
 CC = cc
 
-OBJ = main.c creat_thread.c mutex.c my_usleep.c timing.c info.c error.c death.c utils.c forks.c eating.c
+OBJ =
 
-OBJO = main.o creat_thread.o mutex.o my_usleep.o timing.o info.o error.o death.o
+OBJO =
 
 all: $(NAME)
 
-$(NAME): $(OBJO) philo.h
-		$(CC) -Wall -Werror -Wextra  -pthread $(OBJ) -o $(NAME)
+$(NAME): $(OBJO) philo_bonus.h
+		$(CC) -Wall -Wextra -Werror $(OBJ) -o $(NAME)
 
 clean:
 	rm -f $(OBJO)
 
 fclean: clean
-	rm -f philo
+	rm -rf philo_bonus
 
 re: fclean all
