@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 23:09:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/05 08:13:36 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/05 10:23:31 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int				creat_threads(t_philos *ph, int ac, char **av);
 int				ft_atoi(const char *str);
 void			my_usleep(int ms);
 long long int	get_time(void);
+int				check_d(t_philos *philo);
 void			mutex(t_philos *ph);
 void			taking_left_fork(t_philos *philo);
 void			taking_right_fork(t_philos *philo);

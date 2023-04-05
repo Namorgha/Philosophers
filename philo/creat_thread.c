@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/05 08:27:09 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/05 10:24:59 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,8 @@ void	*routine(void *i)
 		if (!(*philo->pointer))
 			printf("%lld %d is sleeping\n", curr_time(philo), philo->id);
 		my_usleep(philo->time_to_sleep);
-		if (philo->ate == philo->number_of_times_each_philosopher_must_eat)
-		{
-			// printf("[%d]**********[%d]\n", philo->ate, philo->number_of_times_each_philosopher_must_eat);
-			philo->num_ate = 1;
+		if (check_d(philo))
 			return (0);
-		}
 	}
 	return (0);
 }
