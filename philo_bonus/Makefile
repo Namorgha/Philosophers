@@ -6,7 +6,7 @@
 #    By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/03 23:12:19 by namorgha          #+#    #+#              #
-#    Updated: 2023/04/03 23:15:43 by namorgha         ###   ########.fr        #
+#    Updated: 2023/04/07 05:35:00 by namorgha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME = philo_bonus
 
 CC = cc
 
-OBJ =
+OBJ = philo_bonus.c
 
-OBJO =
+OBJO = philo_bonus.o
 
 all: $(NAME)
 

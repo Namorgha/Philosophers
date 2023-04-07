@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:28:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/05 08:28:37 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/05 20:53:53 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	check_time_of_death(t_philos *philo)
 		i = 0;
 		while (i < philo->number_of_philosophers)
 		{
-			if ((get_time() - philo[i].last_meal) >= \
+			if ((get_time() - philo[i].last_meal) > \
 				philo->time_to_die && philo->num_ate == 0)
 			{
 				philo->died = 1;
-				usleep(500);
+				usleep(1000);
 				printf("%lld %d died\n", curr_time(philo), philo[i].id);
 				return (1);
 			}

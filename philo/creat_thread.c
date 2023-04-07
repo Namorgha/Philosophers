@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/05 10:42:27 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/07 09:57:53 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void	*routine(void *i)
 			taking_right_fork(philo);
 			is_eating(philo);
 		}
+		if (check_d(philo))
+			return (0);
 		if (!(*philo->pointer))
 			printf("%lld %d is sleeping\n", curr_time(philo), philo->id);
 		my_usleep(philo->time_to_sleep);
-		if (check_d(philo))
-			return (0);
 	}
 	return (0);
 }
@@ -49,7 +49,7 @@ int	join(t_philos *philo)
 	while (i < philo->number_of_philosophers)
 	{
 		if (pthread_join(philo[i].philo, NULL) != 0)
-			return (2);
+			return (1);
 		i++;
 	}
 	return (0);
@@ -68,7 +68,7 @@ int	creat_threads(t_philos *phil, int ac, char **av)
 	{
 		if (pthread_create(&phil[i].philo, NULL, &routine, &phil[i]) != 0)
 			return (1);
-		usleep (500);
+		usleep(50);
 		i++;
 	}
 	if (check_time_of_death(phil))
