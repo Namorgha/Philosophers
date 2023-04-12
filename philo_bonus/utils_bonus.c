@@ -1,49 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_bonus.c                                      :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 00:49:47 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/07 09:44:43 by namorgha         ###   ########.fr       */
+/*   Created: 2023/04/03 14:15:00 by namorgha          #+#    #+#             */
+/*   Updated: 2023/04/07 13:55:14 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-
-void my_func(int i)
+int	ft_atoi(const char *str)
 {
-	// sem_t	sema;
-
-	// sem_wait(&sema);
-	printf("hellooooo process number >> ** [%d]\n", i);
-	// sem_post(&sema);
-}
-
-int main(int ac, char **av) {
-	int		num_processes;
-	// sem_t	sema;
-	pid_t	pid;
 	int		i;
+	int		res;
+	int		sign;
 
 	i = 0;
-	// sem_init(&sema, 1, 1);
-	if (ac != 2)
+	res = 0;
+	sign = 1;
+	while ((str[i] >= 9 && 13 >= str[i]) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		printf("\033[0;30mError\033[0;30m\n");
-		exit(1);
-	}
-	num_processes = atoi(av[1]);
-	while (i < num_processes)
-	{
-		pid = fork();
-		if (pid == 0)
-		{
-			my_func(i);
-			exit(0);
-		}
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = (res * 10) + str[i] - 48;
+		i++;
+	}
+	return (res * sign);
 }

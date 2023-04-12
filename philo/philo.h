@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 23:09:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/07 01:41:37 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:56:11 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ typedef struct s_philos
 	int				number_of_philosophers;
 	int				time_to_die;
 	int				time_to_eat;
+	int				number_of_times_each_philosopher_must_eat;
 	int				died;
 	int				time_to_sleep;
-	int				number_of_times_each_philosopher_must_eat;
 	int				id;
 	int				forkl;
 	int				forkr;

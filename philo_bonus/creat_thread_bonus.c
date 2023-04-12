@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   creat_thread.c                                     :+:      :+:    :+:   */
+/*   creat_thread_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/09 23:02:46 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/12 01:52:53 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
-void	*routine(void *i)
+void	ft_grab_fork(t_philos *philo)
 {
-	t_philos	*philo;
+	sem_wait(philo->fork);
+	printf("%lld %d has taken a fork\n", curr_time(philo), philo->id);
+}
 
-	philo = (t_philos *)i;
+void	routine(t_philos *philo)
+{
 	philo->start = get_time();
+	pthread_create(&philo->philo, NULL, &check_time_of_death, philo);
 	while (philo->pointer)
 	{
 		if (!(*philo->pointer))
@@ -32,47 +36,29 @@ void	*routine(void *i)
 			taking_right_fork(philo);
 			is_eating(philo);
 		}
-		if (check_d(philo))
-			return (0);
 		if (!(*philo->pointer))
 			printf("%lld %d is sleeping\n", curr_time(philo), philo->id);
 		my_usleep(philo->time_to_sleep);
 	}
-	return (0);
 }
 
-int	join(t_philos *philo)
+void	creat_threads(t_philos *phil, int ac, char **av)
 {
 	int	i;
-
-	i = 0;
-	while (i < philo->number_of_philosophers)
-	{
-		if (pthread_join(philo[i].philo, NULL) != 0)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	creat_threads(t_philos *phil, int ac, char **av)
-{
-	int				i;
+	int	pid;
 
 	i = 0;
 	tasks(phil, ac, av);
-	phil->fork = malloc(sizeof(pthread_mutex_t) * phil->number_of_philosophers);
-	mutex(phil);
 	make_info(phil);
+	init_sem(phil);
+	phil->child = malloc(sizeof(int) * phil->number_of_philosophers);
 	while (i < phil->number_of_philosophers)
 	{
-		if (pthread_create(&phil[i].philo, NULL, &routine, &phil[i]) != 0)
-			return (1);
-		usleep(50);
+		pid = fork();
+		if (pid == 0)
+			routine(&phil[i]);
+		else
+			phil->child[i] = pid;
 		i++;
 	}
-	if (check_time_of_death(phil))
-		return (1);
-	join(phil);
-	return (1);
 }

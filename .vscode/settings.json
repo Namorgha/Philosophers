@@ -1,5 +1,8 @@
 {
 	"files.associations": {
-		"philo.h": "c"
+		"philo.h": "c",
+		"semaphore.h": "c",
+		"__config": "c",
+		"philo_bonus.h": "c"
 	}
 }
