@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/25 16:50:32 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:19:54 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	routine(t_philos *philo)
 		}
 		taking_left_fork(philo);
 		is_eating(philo);
+		check_d(philo);
 		if (!(*philo->pointer))
 		{
 			sem_wait(philo->print);
