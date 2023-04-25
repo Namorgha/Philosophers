@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 05:09:52 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/07 06:18:33 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/25 20:30:30 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	main(int ac, char **av)
 {
 	t_philos	*ph;
 
-	check(ac);
+	if (check(ac))
+		return (1);
 	ph = malloc(sizeof(t_philos) * ft_atoi(av[1]));
 	if (creat_threads(ph, ac, av) == 1)
 	{

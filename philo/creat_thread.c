@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/09 23:02:46 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/25 20:35:55 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int	creat_threads(t_philos *phil, int ac, char **av)
 
 	i = 0;
 	tasks(phil, ac, av);
+	if (check_error(phil, ac, av))
+		return (0);
 	phil->fork = malloc(sizeof(pthread_mutex_t) * phil->number_of_philosophers);
 	mutex(phil);
 	make_info(phil);
