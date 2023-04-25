@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:25:29 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/12 01:30:06 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/25 09:20:53 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,4 @@ void	ft_free_all(t_philos *info)
 	}
 	sem_close(info->fork);
 	free(info->child);
-	free(info);
 }
-
