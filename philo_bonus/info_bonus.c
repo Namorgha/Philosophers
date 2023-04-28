@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:25:30 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/25 11:45:04 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/28 11:28:53 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	make_info(t_philos *philo)
 		philo[i].last_meal = get_time();
 		philo[i].should_die = 0;
 		philo->num_ate = 0;
+		philo->ate = 0;
 		philo[i].pointer = &philo->died;
-		philo[i].ate = 0;
 		i++;
 	}
 }

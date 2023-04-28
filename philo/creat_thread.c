@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/25 20:35:55 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:31:28 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*routine(void *i)
 
 	philo = (t_philos *)i;
 	philo->start = get_time();
-	while (philo->pointer)
+	while (!(*philo->pointer))
 	{
 		if (!(*philo->pointer))
 			printf("%lld %d is thinking\n", curr_time(philo), philo->id);

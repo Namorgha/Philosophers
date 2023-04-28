@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 23:09:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/25 20:34:41 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:22:01 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ typedef struct s_philos
 	pthread_t		philo;
 	int				num_ate;
 	pthread_mutex_t	print;
+	pthread_mutex_t	data;
+	pthread_mutex_t	dat;
+	pthread_mutex_t	eat;
 	pthread_mutex_t	*fork;
 	long long		start;
 }				t_philos;
@@ -44,6 +47,7 @@ typedef struct s_philos
 void			tasks(t_philos *ph, int ac, char **av);
 int				check_time_of_death(t_philos *philo);
 void			make_info(t_philos *philo);
+// int				checlllll(t_philos *philo, int i);
 int				check(int ac);
 int				join(t_philos *philo);
 int				check_error(t_philos *ph, int ac, char **av);

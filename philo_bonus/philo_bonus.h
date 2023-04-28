@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 23:09:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/25 19:20:01 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/26 16:49:30 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,6 @@ void			*check_time_of_death(void *i);
 void			make_info(t_philos *philo);
 void			check(int ac);
 void			ft_free_all(t_philos *info);
-void			put_th_fork_down(t_philos *philo);
-void			take_fork(t_philos *philo);
-void			sleeping(t_philos *philo);
-void			thinking(t_philos *philo);
 void			init_sem(t_philos *philo);
 void			check_error(t_philos *ph, int ac);
 long long		curr_time(t_philos *philo);
@@ -63,7 +59,6 @@ void			my_usleep(int ms);
 long long int	get_time(void);
 void			check_d(t_philos *philo);
 void			taking_left_fork(t_philos *philo);
-void			taking_right_fork(t_philos *philo);
 void			is_eating(t_philos *philo);
 
 #endif

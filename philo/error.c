@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:20:07 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/25 20:35:37 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/04/28 12:14:28 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	check_error(t_philos *ph, int ac, char **av)
 void	tasks(t_philos *ph, int ac, char **av)
 {
 	int	i;
-	
+
 	i = -1;
-	while (i++ < ft_atoi(av[1]))
+	while (++i < ft_atoi(av[1]))
 	{
 		ph[i].number_of_philosophers = ft_atoi(av[1]);
 		ph[i].time_to_die = ft_atoi(av[2]);
