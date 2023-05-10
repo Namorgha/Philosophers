@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/28 14:31:28 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/05/10 05:06:45 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ int	join(t_philos *philo)
 			return (1);
 		i++;
 	}
+	i = 0;
+	pthread_mutex_destroy(&philo->data);
+	pthread_mutex_destroy(&philo->dat);
+	while (i < philo->number_of_philosophers)
+		pthread_mutex_destroy(&philo->fork[i++]);
 	return (0);
 }
 

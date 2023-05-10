@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 23:09:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/28 14:22:01 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/05/10 04:17:59 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ typedef struct s_philos
 void			tasks(t_philos *ph, int ac, char **av);
 int				check_time_of_death(t_philos *philo);
 void			make_info(t_philos *philo);
-// int				checlllll(t_philos *philo, int i);
 int				check(int ac);
 int				join(t_philos *philo);
 int				check_error(t_philos *ph, int ac, char **av);

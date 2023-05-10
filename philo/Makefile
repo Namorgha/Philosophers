@@ -6,7 +6,7 @@
 #    By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 23:09:41 by namorgha          #+#    #+#              #
-#    Updated: 2023/04/28 14:36:00 by namorgha         ###   ########.fr        #
+#    Updated: 2023/04/30 20:56:47 by namorgha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJO = main.o creat_thread.o mutex.o my_usleep.o timing.o info.o error.o death.o
 all: $(NAME)
 
 $(NAME): $(OBJO) philo.h
-		$(CC) -Wall -Werror -Wextra $(OBJ) -o $(NAME)
+		$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -rf $(OBJO)
