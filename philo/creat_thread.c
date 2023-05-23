@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/05/23 14:37:09 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:12:44 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	creat_threads(t_philos *phil, int ac, char **av)
 	make_info(phil);
 	while (i < phil->number_of_philosophers)
 	{
+		usleep(10);
 		if (pthread_create(&phil[i].philo, NULL, &routine, &phil[i]) != 0)
 			return (1);
 		i++;
