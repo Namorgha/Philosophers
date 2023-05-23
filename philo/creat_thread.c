@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/05/10 05:06:45 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:24:47 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ void	*routine(void *i)
 	t_philos	*philo;
 
 	philo = (t_philos *)i;
+	pthread_mutex_lock(&philo->dat);
 	philo->start = get_time();
 	while (!(*philo->pointer))
 	{
+		pthread_mutex_unlock(&philo->dat);
 		if (!(*philo->pointer))
 			printf("%lld %d is thinking\n", curr_time(philo), philo->id);
 		if (philo->id % 2 == 0)
@@ -37,7 +39,9 @@ void	*routine(void *i)
 		if (!(*philo->pointer))
 			printf("%lld %d is sleeping\n", curr_time(philo), philo->id);
 		my_usleep(philo->time_to_sleep);
+		pthread_mutex_lock(&philo->dat);
 	}
+	pthread_mutex_unlock(&philo->dat);
 	return (0);
 }
 
@@ -54,6 +58,7 @@ int	join(t_philos *philo)
 	}
 	i = 0;
 	pthread_mutex_destroy(&philo->data);
+	pthread_mutex_destroy(&philo->death);
 	pthread_mutex_destroy(&philo->dat);
 	while (i < philo->number_of_philosophers)
 		pthread_mutex_destroy(&philo->fork[i++]);
@@ -75,11 +80,9 @@ int	creat_threads(t_philos *phil, int ac, char **av)
 	{
 		if (pthread_create(&phil[i].philo, NULL, &routine, &phil[i]) != 0)
 			return (1);
-		usleep(50);
 		i++;
 	}
 	if (check_time_of_death(phil))
 		return (1);
-	join(phil);
 	return (1);
 }

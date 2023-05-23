@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 23:09:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/05/10 04:17:59 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/05/13 22:44:13 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_philos
 	pthread_mutex_t	print;
 	pthread_mutex_t	data;
 	pthread_mutex_t	dat;
+	pthread_mutex_t	death;
 	pthread_mutex_t	eat;
 	pthread_mutex_t	*fork;
 	long long		start;
