@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/05/23 14:31:10 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:37:09 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	*routine(void *i)
 		pthread_mutex_unlock(&philo->dat);
 		if (!(*philo->pointer))
 			printf("%lld %d is thinking\n", curr_time(philo), philo->id);
-		taking_left_fork(philo);
-		is_eating(philo);
+			taking_left_fork(philo);
+			is_eating(philo);
 		if (check_d(philo))
 			return (0);
 		if (!(*philo->pointer))
