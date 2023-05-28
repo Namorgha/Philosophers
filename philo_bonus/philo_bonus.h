@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 23:09:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/26 16:49:30 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:44:25 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_philos
 	int				*child;
 	sem_t			*print;
 	sem_t			*fork;
+	sem_t			*death;
 	long long		start;
 }						t_philos;
 
@@ -51,14 +52,14 @@ void			check(int ac);
 void			ft_free_all(t_philos *info);
 void			init_sem(t_philos *philo);
 void			check_error(t_philos *ph, int ac);
+int				check_d(t_philos *philo);
 long long		curr_time(t_philos *philo);
 void			routine(t_philos *philo);
 void			creat_threads(t_philos *ph, int ac, char **av);
 int				ft_atoi(const char *str);
 void			my_usleep(int ms);
 long long int	get_time(void);
-void			check_d(t_philos *philo);
-void			taking_left_fork(t_philos *philo);
+void			taking_fork(t_philos *philo);
 void			is_eating(t_philos *philo);
 
 #endif

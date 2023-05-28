@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:28:46 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/26 16:49:51 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:46:40 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	*check_time_of_death(void *j)
 			if (!(*philo->pointer))
 			{
 				philo->died = 1;
-				sem_wait(philo->print);
 				printf("%lld %d died\n", curr_time(philo), philo->id);
 			}
 			exit(1);

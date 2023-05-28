@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:20:07 by namorgha          #+#    #+#             */
-/*   Updated: 2023/05/13 23:33:00 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/05/28 12:16:52 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ int	check_d(t_philos *philo)
 {
 	if (philo->ate == philo->number_of_times_each_philosopher_must_eat)
 	{
-		pthread_mutex_lock(&philo->death);
+		pthread_mutex_lock(&philo->dat);
 		philo->num_ate = 1;
-		pthread_mutex_unlock(&philo->death);
+		pthread_mutex_unlock(&philo->dat);
 		return (1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:20:07 by namorgha          #+#    #+#             */
-/*   Updated: 2023/04/26 16:50:06 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:43:07 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,14 @@ void	check(int ac)
 			"  [number_of_times_eacih_philosopher_must_eat] \033[0m\n");
 		exit(0);
 	}
+}
+
+int	check_d(t_philos *philo)
+{
+	if (philo->ate == philo->number_of_times_each_philosopher_must_eat)
+	{
+		philo->num_ate = 1;
+		return (1);
+	}
+	return (0);
 }
