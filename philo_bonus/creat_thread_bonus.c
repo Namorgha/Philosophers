@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 04:04:41 by namorgha          #+#    #+#             */
-/*   Updated: 2023/05/28 11:46:05 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:46:46 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	routine(t_philos *philo)
 			printf("%lld %d is thinking\n", curr_time(philo), philo->id);
 			sem_post(philo->print);
 		}
-		taking_fork(philo);
+		taking_left_fork(philo);
 		is_eating(philo);
 		if (!(*philo->pointer))
 		{
@@ -47,7 +47,10 @@ void	creat_threads(t_philos *phil, int ac, char **av)
 	phil->child = malloc(sizeof(int) * phil->number_of_philosophers);
 	phil->start = get_time();
 	while (i < phil->number_of_philosophers)
-		phil[i++].start = phil->start;
+	{
+		phil[i].start = phil->start;
+		i++;
+	}
 	i = 0;
 	while (i < phil->number_of_philosophers)
 	{

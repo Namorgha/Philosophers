@@ -6,7 +6,7 @@
 #    By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 23:09:41 by namorgha          #+#    #+#              #
-#    Updated: 2023/05/28 12:09:15 by namorgha         ###   ########.fr        #
+#    Updated: 2023/06/16 09:27:13 by namorgha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 CC = cc
 
-FLAGS = -Wall -Werror -Wextra -fsanitize=thread -g
+FLAGS = -Wall -Werror -Wextra
 
 OBJ = main.c creat_thread.c mutex.c my_usleep.c timing.c info.c error.c death.c utils.c forks.c eating.c
 

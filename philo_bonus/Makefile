@@ -6,7 +6,7 @@
 #    By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 23:09:41 by namorgha          #+#    #+#              #
-#    Updated: 2023/05/28 10:46:44 by namorgha         ###   ########.fr        #
+#    Updated: 2023/06/12 09:23:26 by namorgha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo_bonus
 
 CC = cc
 
-FLAGS = -Wall -Werror -Wextra #-fsanitize=thread -g
+FLAGS = -Wall -Werror -Wextra
 
 OBJ = main_bonus.c creat_thread_bonus.c my_usleep_bonus.c timing_bonus.c info_bonus.c error_bonus.c death_bonus.c utils_bonus.c forks_bonus.c eating_bonus.c init_semaphore.c free.c
 

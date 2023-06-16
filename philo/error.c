@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:20:07 by namorgha          #+#    #+#             */
-/*   Updated: 2023/05/28 12:16:52 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:29:45 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ int	check_error(t_philos *ph, int ac, char **av)
 
 	n = ft_atoi(av[1]);
 	if (n < 1)
-	{
 		return (printf("\033[31mError: number of "\
 			"philosophers must be positive.\033[31m\n"));
-	}
 	else if (ph->time_to_die < 60)
 		return (printf("\033[31mWrong time to die\033[31m\n"));
 	else if (ph->time_to_eat < 60)
@@ -46,6 +44,8 @@ void	tasks(t_philos *ph, int ac, char **av)
 		ph[i].time_to_sleep = ft_atoi(av[4]);
 		if (ac == 6)
 			ph[i].number_of_times_each_philosopher_must_eat = ft_atoi(av[5]);
+		else
+			ph[i].number_of_times_each_philosopher_must_eat = -1;
 	}
 }
 
@@ -60,14 +60,10 @@ int	check(int ac)
 	return (0);
 }
 
-int	check_d(t_philos *philo)
+void	check_d(t_philos *philo)
 {
-	if (philo->ate == philo->number_of_times_each_philosopher_must_eat)
+	if (philo->ate >= philo->number_of_times_each_philosopher_must_eat)
 	{
-		pthread_mutex_lock(&philo->dat);
 		philo->num_ate = 1;
-		pthread_mutex_unlock(&philo->dat);
-		return (1);
 	}
-	return (0);
 }

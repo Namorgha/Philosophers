@@ -6,7 +6,7 @@
 /*   By: namorgha <namorgha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:25:30 by namorgha          #+#    #+#             */
-/*   Updated: 2023/05/28 12:11:08 by namorgha         ###   ########.fr       */
+/*   Updated: 2023/06/12 08:42:03 by namorgha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	make_info(t_philos *philo)
 	while (i < philo->number_of_philosophers)
 	{
 		philo[i].fork = philo->fork;
+		philo[i].data = philo->data;
 		philo[i].print = philo->print;
-		philo[i].dat = philo->dat;
-		philo[i].start = get_time();
 		philo[i].id = i + 1;
 		philo[i].forkl = i;
 		philo[i].forkr = (i + 1) % philo->number_of_philosophers;
 		philo[i].last_meal = get_time();
+		philo[i].start = get_time();
 		philo[i].should_die = 0;
 		philo->num_ate = 0;
 		philo[i].pointer = &philo->died;
